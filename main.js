@@ -4,7 +4,24 @@ const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
 
+document.querySelectorAll('.like-glyph').forEach(span => {
+     span.addEventListener('click', e => {
+       mimicServerCall()
+       .then(resp => {
+         console.log("resp:", resp)
+       })
+       .catch(err => {
+         console.log("err:", err)
+       })
+      if (span.textContent === EMPTY_HEART){
+      span.textContent = FULL_HEART
+      span.classList.add('activated-heart')
+      } else {
+        span.textContent = EMPTY_HEART
+      }
+     })
 
+})
 
 
 //------------------------------------------------------------------------------
